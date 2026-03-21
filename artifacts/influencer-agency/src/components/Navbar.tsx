@@ -44,7 +44,7 @@ export function Navbar() {
             href="/"
             className="text-2xl font-display font-bold tracking-tighter text-white hover:opacity-80 transition-opacity"
           >
-            INFLUX<span className="text-primary">.</span>
+            TRENDIVO<span className="text-primary">.</span>
           </Link>
 
           {/* Desktop Tubelight Nav */}

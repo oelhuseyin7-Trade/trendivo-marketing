@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, Instagram, Twitter, Mail } from "lucide-react";
+import { ArrowRight, Instagram, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -39,18 +39,13 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-6">Connect</h3>
             <ul className="space-y-4">
               <li>
-                <a href="mailto:contact@influx.agency" className="text-white/60 hover:text-white transition-colors flex items-center gap-2">
-                  <Mail className="w-4 h-4" /> contact@influx.agency
+                <a href="mailto:helpteam.trendivo@gmail.com" className="text-white/60 hover:text-white transition-colors flex items-center gap-2">
+                  <Mail className="w-4 h-4" /> helpteam.trendivo@gmail.com
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/60 hover:text-white transition-colors flex items-center gap-2">
-                  <Instagram className="w-4 h-4" /> @InfluxAgency
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/60 hover:text-white transition-colors flex items-center gap-2">
-                  <Twitter className="w-4 h-4" /> @Influx_HQ
+                <a href="https://instagram.com/trendivo.marketing" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors flex items-center gap-2">
+                  <Instagram className="w-4 h-4" /> @trendivo.marketing
                 </a>
               </li>
             </ul>
@@ -59,7 +54,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/40 text-sm">
-            © {new Date().getFullYear()} INFLUX Agency. All rights reserved.
+            © {new Date().getFullYear()} Trendivo Marketing Agency. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-white/40">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

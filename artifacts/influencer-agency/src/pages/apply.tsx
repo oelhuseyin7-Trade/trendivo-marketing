@@ -68,7 +68,7 @@ export default function Apply() {
                 className="space-y-8"
               >
                 <div className="text-center mb-12">
-                  <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">Join INFLUX</h1>
+                  <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">Join Trendivo</h1>
                   <p className="text-white/60 text-lg">Select how you want to partner with us.</p>
                 </div>
 
@@ -371,7 +371,7 @@ export default function Apply() {
                 </div>
                 <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Application Received!</h2>
                 <p className="text-white/60 text-lg mb-8 max-w-md mx-auto">
-                  Thank you for applying to INFLUX. Our team will review your application and get back to you within 3-5 business days.
+                  Thank you for applying to Trendivo Marketing Agency. Our team will review your application and get back to you within 3-5 business days.
                 </p>
                 <Button 
                   onClick={() => window.location.href = '/'}
