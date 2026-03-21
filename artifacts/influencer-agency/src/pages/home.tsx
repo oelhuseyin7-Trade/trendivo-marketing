@@ -7,6 +7,7 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ShaderAnimation } from "@/components/ui/shader-animation";
 import { Sparkles, Users, TrendingUp, MoveRight } from "lucide-react";
 
 export default function Home() {
@@ -30,10 +31,10 @@ export default function Home() {
       <main>
         {/* HERO SECTION */}
         <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-          {/* Animated Gradient Background */}
+          {/* Shader Animation Background */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-animated opacity-30 mix-blend-screen" />
-            <div className="absolute inset-0 bg-background/80 backdrop-blur-[100px]" />
+            <ShaderAnimation />
+            <div className="absolute inset-0 bg-background/70" />
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
