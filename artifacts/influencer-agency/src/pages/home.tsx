@@ -1,3 +1,4 @@
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
@@ -6,9 +7,22 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { Sparkles, Users, TrendingUp, ArrowRight } from "lucide-react";
+import { Sparkles, Users, TrendingUp, MoveRight } from "lucide-react";
 
 export default function Home() {
+  const [titleNumber, setTitleNumber] = useState(0);
+  const titles = useMemo(
+    () => ["High-Converting", "Viral-Ready", "ROI-Driven", "Data-Backed", "Impact-Driven"],
+    []
+  );
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setTitleNumber((prev) => (prev === titles.length - 1 ? 0 : prev + 1));
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, [titleNumber, titles]);
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
       <Navbar />
@@ -34,8 +48,26 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl sm:text-6xl md:text-8xl font-display font-extrabold tracking-tighter mb-8 leading-[1.1]">
-                We Connect Brands With <br className="hidden md:block" />
-                <span className="text-gradient">High-Converting</span> Creators
+                We Connect Brands With
+                <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1 h-[1.2em]">
+                  &nbsp;
+                  {titles.map((title, index) => (
+                    <motion.span
+                      key={index}
+                      className="absolute text-gradient font-extrabold"
+                      initial={{ opacity: 0, y: 80 }}
+                      transition={{ type: "spring", stiffness: 50 }}
+                      animate={
+                        titleNumber === index
+                          ? { y: 0, opacity: 1 }
+                          : { y: titleNumber > index ? -80 : 80, opacity: 0 }
+                      }
+                    >
+                      {title}
+                    </motion.span>
+                  ))}
+                </span>
+                <span className="block">Creators</span>
               </h1>
               
               <p className="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
