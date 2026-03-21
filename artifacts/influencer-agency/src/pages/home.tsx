@@ -7,7 +7,8 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { ShaderAnimation } from "@/components/ui/shader-animation";
+import { WebGLShader } from "@/components/ui/web-gl-shader";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { Sparkles, Users, TrendingUp, MoveRight } from "lucide-react";
 
 export default function Home() {
@@ -31,10 +32,10 @@ export default function Home() {
       <main>
         {/* HERO SECTION */}
         <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-          {/* Shader Animation Background */}
+          {/* WebGL Shader Background */}
           <div className="absolute inset-0 z-0">
-            <ShaderAnimation />
-            <div className="absolute inset-0 bg-background/70" />
+            <WebGLShader />
+            <div className="absolute inset-0 bg-background/65" />
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -78,14 +79,14 @@ export default function Home() {
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/apply">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-14 text-lg font-semibold glow-primary glow-primary-hover w-full sm:w-auto">
+                  <LiquidButton size="xl" className="bg-primary/80 text-white rounded-full border border-primary/40 font-semibold glow-primary glow-primary-hover w-full sm:w-auto">
                     Apply Now
-                  </Button>
+                  </LiquidButton>
                 </Link>
                 <a href="#how-it-works">
-                  <Button variant="outline" size="lg" className="rounded-full px-8 h-14 text-lg border-white/20 hover:bg-white/5 w-full sm:w-auto">
+                  <LiquidButton size="xl" className="text-white rounded-full border border-white/20 w-full sm:w-auto">
                     How it works
-                  </Button>
+                  </LiquidButton>
                 </a>
               </div>
             </motion.div>
