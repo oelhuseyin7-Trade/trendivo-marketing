@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Sparkles, Users, TrendingUp, ArrowRight } from "lucide-react";
 
 export default function Home() {
@@ -67,18 +68,29 @@ export default function Home() {
                 { value: 10000, suffix: "+", label: "Creators in Network" },
                 { value: 98, suffix: "%", label: "Campaign Success Rate" }
               ].map((stat, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.6 }}
-                  className="glass-panel p-8 rounded-3xl text-center"
                 >
-                  <div className="text-5xl md:text-6xl font-display font-bold text-white mb-2">
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                  <div className="relative rounded-[1.25rem] border border-white/10 p-2">
+                    <GlowingEffect
+                      spread={40}
+                      glow={true}
+                      disabled={false}
+                      proximity={64}
+                      inactiveZone={0.01}
+                      borderWidth={2}
+                    />
+                    <div className="relative glass-panel rounded-xl p-8 text-center">
+                      <div className="text-5xl md:text-6xl font-display font-bold text-white mb-2">
+                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                      </div>
+                      <div className="text-white/60 font-medium">{stat.label}</div>
+                    </div>
                   </div>
-                  <div className="text-white/60 font-medium">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -123,13 +135,25 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ delay: i * 0.2, duration: 0.6 }}
-                  className="relative z-10 flex flex-col items-center text-center group"
+                  className="relative z-10"
                 >
-                  <div className="w-20 h-20 rounded-2xl bg-card border border-white/10 flex items-center justify-center mb-6 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(124,58,237,0.2)] transition-all duration-500">
-                    <step.icon className="w-8 h-8 text-primary" />
+                  <div className="relative h-full rounded-[1.25rem] border border-white/10 p-2">
+                    <GlowingEffect
+                      spread={40}
+                      glow={true}
+                      disabled={false}
+                      proximity={64}
+                      inactiveZone={0.01}
+                      borderWidth={2}
+                    />
+                    <div className="relative flex flex-col items-center text-center rounded-xl bg-card/50 p-8 h-full">
+                      <div className="w-20 h-20 rounded-2xl bg-card border border-white/10 flex items-center justify-center mb-6">
+                        <step.icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="text-2xl font-display font-bold mb-4">{step.title}</h3>
+                      <p className="text-white/60 leading-relaxed">{step.desc}</p>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-display font-bold mb-4">{step.title}</h3>
-                  <p className="text-white/60 leading-relaxed">{step.desc}</p>
                 </motion.div>
               ))}
             </div>
