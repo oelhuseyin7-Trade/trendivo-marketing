@@ -1,0 +1,13 @@
+packages:
+  "framer-motion": "Required for page transitions, scroll-triggered animations, and fluid interactive elements"
+  "react-hook-form": "Required for dynamic application forms"
+  "@hookform/resolvers": "Required for Zod validation integration with react-hook-form"
+
+images:
+  - path: "artifacts/influencer-agency/public/images/hero-abstract.png"
+    description: "Premium abstract 3D dark glassmorphism shape with subtle purple, blue, and red glowing light leaks"
+    aspect_ratio: "16:9"
+
+notes:
+  - Assuming REST API endpoint POST /api/applications for the form submission
+  - Using Framer Motion for scroll-linked animations and page transitions

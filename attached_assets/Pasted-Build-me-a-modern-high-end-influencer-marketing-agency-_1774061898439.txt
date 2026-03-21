@@ -1,0 +1,119 @@
+Build me a modern, high-end influencer marketing agency website using React (Vite) with a clean, professional UI and smooth animations.
+
+GENERAL STYLE:
+
+* Dark theme (black background)
+* Premium animated gradient (blue, purple, red tones like Apple-style ads)
+* Smooth transitions and subtle motion effects
+* Minimal, clean, high-converting design
+* Use modern UI/UX principles
+* Add hover effects and soft glow effects on buttons
+
+STRUCTURE:
+
+1. NAVBAR:
+
+* Left: Agency name/logo (placeholder text is fine)
+* Right: "Apply" button (very visible, primary CTA)
+* Sticky navbar with slight transparency on scroll
+
+2. HOMEPAGE:
+
+HERO SECTION:
+
+* Big headline: “We connect brands with high-converting creators”
+* Subtext explaining value briefly
+* Primary CTA button: "Apply Now"
+* Background: animated gradient
+* Add subtle floating or fade-in animation
+
+RESULTS / STATS SECTION:
+
+* Show stats like:
+
+  * “Up to 5x brand reach”
+  * “Thousands of creators”
+  * “High-converting campaigns”
+* Add animated counters that count up when scrolled into view
+
+HOW IT WORKS SECTION:
+
+* 3 steps:
+
+  1. Apply
+  2. Get matched with creators/brands
+  3. Grow your brand or income
+* Add simple icons and smooth fade-in animation
+
+FAQ SECTION (BOTTOM):
+
+* Collapsible dropdown questions
+* Example questions:
+
+  * How does this work?
+  * Is this paid?
+  * How do creators get paid?
+  * How long does it take to get matched?
+
+FOOTER:
+
+* Include another “Apply” button
+* Basic contact info placeholders
+* Clean minimal layout
+
+3. APPLICATION FLOW:
+
+When user clicks "Apply", navigate to /apply page.
+
+APPLY PAGE:
+
+Step 1:
+
+* Ask: “Are you applying as:”
+
+  * Influencer
+  * Brand / Business
+
+DYNAMIC FORM (very important):
+
+If Influencer is selected, show:
+
+* Name
+* Email
+* Social media handles
+* Follower count
+* Average views per video
+* Engagement rate (%)
+* Niche (fitness, fashion, etc.)
+* Past brand deals? (yes/no or text)
+* Typical price per post
+* Content style
+* Audience location
+
+If Brand is selected, show:
+
+* Business name
+* Website/store link
+* What does your business sell?
+* Target audience
+* Budget for influencer marketing
+* Goals (awareness, sales, content)
+* Preferred influencer size (small/mid/large)
+
+4. ANIMATIONS & TECH:
+
+* Use Framer Motion for animations (fade in, slide up, hover effects)
+* Add smooth scrolling transitions
+* Add animated gradient background using CSS keyframes
+* Add button hover effects (scale + glow)
+* Ensure mobile responsiveness
+
+5. TECH REQUIREMENTS:
+
+* Use React with Vite
+* Organize components cleanly (Navbar, Hero, Form, FAQ, etc.)
+* Use modern best practices
+* Keep code clean and readable
+
+GOAL:
+The website should feel premium, modern, and trustworthy — something that would impress both influencers and brands and make them want to apply.
