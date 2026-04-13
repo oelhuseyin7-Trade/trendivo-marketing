@@ -1,251 +1,233 @@
-import { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { AnimatedCounter } from "@/components/AnimatedCounter";
-import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { WebGLShader } from "@/components/ui/web-gl-shader";
-import { LiquidButton } from "@/components/ui/liquid-glass-button";
-import { Sparkles, Users, TrendingUp, MoveRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Layout } from "@/components/Layout";
+import { ArrowRight, TrendingUp, Video, BarChart3, Star, ChevronRight } from "lucide-react";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
+const services = [
+  {
+    icon: TrendingUp,
+    title: "Influencer Campaigns",
+    description: "End-to-end campaign management. We find, vet, and coordinate top creators in your niche to drive real results.",
+  },
+  {
+    icon: Video,
+    title: "UGC Content Creation",
+    description: "Ads-ready UGC for TikTok, Reels & paid media. Authentic content that converts at scale.",
+  },
+  {
+    icon: BarChart3,
+    title: "Performance Marketing",
+    description: "Pay-per-sale affiliate campaigns with full tracking setup, creator payouts, and ROI reporting.",
+  },
+];
+
+const caseStudies = [
+  {
+    brand: "GlowLab Skincare",
+    niche: "Beauty & Skincare",
+    result: "4.2M views",
+    metric: "3.8x ROI",
+    color: "bg-rose-50",
+    tag: "Influencer Campaign",
+  },
+  {
+    brand: "APEX Fitness",
+    niche: "Health & Fitness",
+    result: "6.5M impressions",
+    metric: "5.1x ROAS",
+    color: "bg-violet-50",
+    tag: "UGC Ads",
+  },
+  {
+    brand: "NovaWear",
+    niche: "Fashion & Apparel",
+    result: "$280K revenue",
+    metric: "12M reach",
+    color: "bg-blue-50",
+    tag: "Affiliate Campaign",
+  },
+];
+
+const logos = ["BRAND A", "BRAND B", "BRAND C", "BRAND D", "BRAND E"];
 
 export default function Home() {
-  const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => ["High-Converting", "Viral-Ready", "ROI-Driven", "Data-Backed", "Impact-Driven"],
-    []
-  );
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setTitleNumber((prev) => (prev === titles.length - 1 ? 0 : prev + 1));
-    }, 2000);
-    return () => clearTimeout(timeoutId);
-  }, [titleNumber, titles]);
-
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
-      <Navbar />
+    <Layout>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-white pt-24 pb-20 md:pt-32 md:pb-28">
+        {/* Background decoration */}
+        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-violet-100/60 blur-3xl pointer-events-none" />
 
-      <main>
-        {/* HERO SECTION */}
-        <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-          {/* WebGL Shader Background */}
-          <div className="absolute inset-0 z-0">
-            <WebGLShader />
-            <div className="absolute inset-0 bg-background/65" />
-          </div>
-
-          <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-white/80 mb-8 backdrop-blur-md">
-                <Sparkles className="w-4 h-4 text-primary" />
-                <span>The Premier Influencer Network</span>
-              </div>
-              
-              <h1 className="text-5xl sm:text-6xl md:text-8xl font-display font-extrabold tracking-tighter mb-8 leading-[1.1]">
-                We Connect Brands With
-                <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1 h-[1.2em]">
-                  &nbsp;
-                  {titles.map((title, index) => (
-                    <motion.span
-                      key={index}
-                      className="absolute text-gradient font-extrabold"
-                      initial={{ opacity: 0, y: 80 }}
-                      transition={{ type: "spring", stiffness: 50 }}
-                      animate={
-                        titleNumber === index
-                          ? { y: 0, opacity: 1 }
-                          : { y: titleNumber > index ? -80 : 80, opacity: 0 }
-                      }
-                    >
-                      {title}
-                    </motion.span>
-                  ))}
-                </span>
-                <span className="block">Creators</span>
-              </h1>
-              
-              <p className="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                Join the most powerful influencer marketing network. Drive real results, 
-                reach real audiences, grow real income.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/apply">
-                  <LiquidButton size="xl" className="bg-primary/80 text-white rounded-full border border-primary/40 font-semibold glow-primary glow-primary-hover w-full sm:w-auto">
-                    Apply Now
-                  </LiquidButton>
-                </Link>
-                <a href="#how-it-works">
-                  <LiquidButton size="xl" className="text-white rounded-full border border-white/20 w-full sm:w-auto">
-                    How it works
-                  </LiquidButton>
-                </a>
-              </div>
+        <div className="relative max-w-5xl mx-auto px-6 md:px-8 text-center">
+          <motion.div initial="hidden" animate="show" variants={stagger}>
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8">
+              <Star className="w-3.5 h-3.5 fill-primary" />
+              Influencer Marketing Agency
             </motion.div>
-          </div>
-        </section>
-
-        {/* STATS SECTION */}
-        <section className="py-24 relative z-10 bg-black/50 border-y border-white/5">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { value: 5, suffix: "x", label: "Average Brand Reach Increase" },
-                { value: 10000, suffix: "+", label: "Creators in Network" },
-                { value: 98, suffix: "%", label: "Campaign Success Rate" }
-              ].map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.6 }}
-                >
-                  <div className="relative rounded-[1.25rem] border border-white/10 p-2">
-                    <GlowingEffect
-                      spread={40}
-                      glow={true}
-                      disabled={false}
-                      proximity={64}
-                      inactiveZone={0.01}
-                      borderWidth={2}
-                    />
-                    <div className="relative glass-panel rounded-xl p-8 text-center">
-                      <div className="text-5xl md:text-6xl font-display font-bold text-white mb-2">
-                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                      </div>
-                      <div className="text-white/60 font-medium">{stat.label}</div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* HOW IT WORKS SECTION */}
-        <section id="how-it-works" className="py-32 relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">How It Works</h2>
-              <p className="text-white/60 max-w-2xl mx-auto text-lg">
-                Our streamlined process takes the friction out of influencer marketing, 
-                letting you focus on creating great content and growing your business.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-              {/* Connecting line for desktop */}
-              <div className="hidden md:block absolute top-24 left-1/6 right-1/6 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent z-0" />
-
-              {[
-                {
-                  icon: Users,
-                  title: "1. Apply",
-                  desc: "Fill out a quick application to join our exclusive network as a creator or brand."
-                },
-                {
-                  icon: Sparkles,
-                  title: "2. Get Matched",
-                  desc: "Our team reviews your profile and matches you with the perfect partners based on data."
-                },
-                {
-                  icon: TrendingUp,
-                  title: "3. Grow",
-                  desc: "Launch campaigns, track results seamlessly, and scale your brand or income."
-                }
-              ].map((step, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ delay: i * 0.2, duration: 0.6 }}
-                  className="relative z-10"
-                >
-                  <div className="relative h-full rounded-[1.25rem] border border-white/10 p-2">
-                    <GlowingEffect
-                      spread={40}
-                      glow={true}
-                      disabled={false}
-                      proximity={64}
-                      inactiveZone={0.01}
-                      borderWidth={2}
-                    />
-                    <div className="relative flex flex-col items-center text-center rounded-xl bg-card/50 p-8 h-full">
-                      <div className="w-20 h-20 rounded-2xl bg-card border border-white/10 flex items-center justify-center mb-6">
-                        <step.icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <h3 className="text-2xl font-display font-bold mb-4">{step.title}</h3>
-                      <p className="text-white/60 leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ SECTION */}
-        <section id="faq" className="py-32 bg-black/30 border-t border-white/5">
-          <div className="max-w-3xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Frequently Asked Questions</h2>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <motion.h1
+              variants={fadeUp}
+              className="text-5xl sm:text-6xl md:text-7xl font-display font-extrabold tracking-tight text-gray-900 mb-6 leading-[1.05]"
             >
-              <Accordion type="single" collapsible className="w-full">
-                {[
-                  {
-                    q: "How does this work?",
-                    a: "We match influencers with brands based on niche, audience size, engagement, and campaign goals. Once matched, you'll collaborate on content that drives real results."
-                  },
-                  {
-                    q: "Is this paid?",
-                    a: "Yes! Creators are compensated per post, per campaign, or through revenue share depending on the deal structure."
-                  },
-                  {
-                    q: "How do creators get paid?",
-                    a: "Creators receive payment via bank transfer, PayPal, or crypto within 14 days of campaign completion."
-                  },
-                  {
-                    q: "How long does it take to get matched?",
-                    a: "Most creators and brands are matched within 3-7 business days of approval."
-                  },
-                  {
-                    q: "What niches do you work with?",
-                    a: "We work with all niches including fitness, fashion, tech, beauty, food, travel, gaming, and more."
-                  }
-                ].map((faq, i) => (
-                  <AccordionItem key={i} value={`item-${i}`} className="border-white/10 px-2">
-                    <AccordionTrigger className="text-left text-lg font-medium hover:text-primary transition-colors py-6">
-                      {faq.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-white/60 text-base leading-relaxed pb-6">
-                      {faq.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              We help brands turn{" "}
+              <span className="text-gradient">influencers</span>{" "}
+              into consistent sales.
+            </motion.h1>
+            <motion.p variants={fadeUp} className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Full-service influencer marketing & UGC campaigns for growing brands. We handle everything — from creator discovery to results.
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-semibold text-base hover:bg-primary/90 transition-all glow-primary-hover"
+              >
+                Get Free Strategy Call <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/case-studies"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gray-200 text-gray-700 font-semibold text-base hover:border-gray-300 hover:bg-gray-50 transition-all"
+              >
+                View Case Studies <ChevronRight className="w-4 h-4" />
+              </Link>
             </motion.div>
-          </div>
-        </section>
-      </main>
+          </motion.div>
+        </div>
+      </section>
 
-      <Footer />
-    </div>
+      {/* SOCIAL PROOF BAR */}
+      <section className="bg-gray-50 border-y border-gray-100 py-8">
+        <div className="max-w-5xl mx-auto px-6 md:px-8">
+          <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Trusted by growing ecom brands</p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            {logos.map((l) => (
+              <span key={l} className="text-lg font-display font-bold text-gray-200 tracking-wide">{l}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT WE DO */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <motion.div
+            initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.p variants={fadeUp} className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">What We Do</motion.p>
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-display font-bold text-gray-900">
+              One agency. Every channel.
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            {services.map((s) => (
+              <motion.div
+                key={s.title}
+                variants={fadeUp}
+                className="p-8 rounded-2xl border border-gray-100 bg-white card-hover"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                  <s.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-display font-bold text-gray-900 mb-3">{s.title}</h3>
+                <p className="text-gray-500 leading-relaxed">{s.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* RESULTS */}
+      <section className="py-24 section-alt">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <motion.div
+            initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.p variants={fadeUp} className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Results</motion.p>
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-display font-bold text-gray-900">
+              Campaigns that convert.
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            {caseStudies.map((cs) => (
+              <motion.div
+                key={cs.brand}
+                variants={fadeUp}
+                className={`p-8 rounded-2xl ${cs.color} card-hover`}
+              >
+                <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">{cs.tag}</span>
+                <h3 className="text-xl font-display font-bold text-gray-900 mt-4 mb-1">{cs.brand}</h3>
+                <p className="text-sm text-gray-500 mb-6">{cs.niche}</p>
+                <div className="flex items-end gap-4">
+                  <div>
+                    <p className="text-3xl font-display font-extrabold text-gray-900">{cs.result}</p>
+                    <p className="text-sm text-gray-500">Generated</p>
+                  </div>
+                  <div className="ml-auto text-right">
+                    <p className="text-2xl font-display font-bold text-primary">{cs.metric}</p>
+                    <p className="text-sm text-gray-500">Return</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+            >
+              See all case studies <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="py-24 bg-gray-950 text-white">
+        <div className="max-w-3xl mx-auto px-6 md:px-8 text-center">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-display font-bold mb-5 leading-tight">
+              Start your influencer campaign today.
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-gray-400 text-lg mb-10">
+              Book a free 30-minute strategy call. We'll audit your brand and map out a custom creator campaign.
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-semibold text-base hover:bg-primary/90 transition-all glow-primary-hover"
+              >
+                Book Free Strategy Call <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/5 transition-all"
+              >
+                See our services
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+    </Layout>
   );
 }
