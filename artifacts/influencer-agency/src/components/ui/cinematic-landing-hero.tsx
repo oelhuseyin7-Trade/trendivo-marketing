@@ -3,7 +3,9 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "wouter";
 import { cn } from "@/lib/utils";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -287,38 +289,30 @@ export function CinematicHero({
   }, [metricValue]);
 
   const defaultCtaButtons = (
-    <div className="flex flex-col sm:flex-row gap-6">
-      <a
-        href="/apply"
-        className="btn-modern-light flex items-center justify-center gap-3 px-8 py-4 rounded-[1.25rem] group focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
-      >
-        <svg className="w-6 h-6 transition-transform group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-        </svg>
-        <div className="text-left">
-          <div className="text-[10px] font-bold tracking-wider text-neutral-500 uppercase mb-[-2px]">Join as a</div>
-          <div className="text-xl font-bold leading-none tracking-tight">Creator</div>
-        </div>
-      </a>
-      <a
-        href="/apply"
-        className="btn-modern-dark flex items-center justify-center gap-3 px-8 py-4 rounded-[1.25rem] group focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 focus:ring-offset-background"
-      >
-        <svg className="w-6 h-6 transition-transform group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-        <div className="text-left">
-          <div className="text-[10px] font-bold tracking-wider text-neutral-400 uppercase mb-[-2px]">Partner as a</div>
-          <div className="text-xl font-bold leading-none tracking-tight">Brand</div>
-        </div>
-      </a>
+    <div className="flex flex-col sm:flex-row gap-6 items-center">
+      <Link href="/apply">
+        <LiquidButton size="xxl" className="text-white text-lg font-bold px-10 tracking-tight">
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          Apply as Creator
+        </LiquidButton>
+      </Link>
+      <Link href="/apply">
+        <LiquidButton size="xxl" className="text-white text-lg font-bold px-10 tracking-tight">
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+          Partner as Brand
+        </LiquidButton>
+      </Link>
     </div>
   );
 
   return (
     <div
       ref={containerRef}
-      className={cn("relative w-screen h-screen overflow-hidden flex items-center justify-center bg-background text-foreground font-sans antialiased", className)}
+      className={cn("relative w-screen h-screen overflow-hidden flex items-center justify-center bg-black/20 text-foreground font-sans antialiased", className)}
       style={{ perspective: "1500px" }}
       {...props}
     >

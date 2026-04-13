@@ -5,11 +5,15 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { CinematicHero } from "@/components/ui/cinematic-landing-hero";
+import { WebGLShader } from "@/components/ui/web-gl-shader";
 import { Sparkles, Users, TrendingUp } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="bg-background text-foreground selection:bg-primary/30">
+    <div className="text-foreground selection:bg-primary/30">
+      {/* Full-page WebGL shader background — fixed, renders behind everything */}
+      <WebGLShader />
+
       <Navbar />
 
       {/* CINEMATIC HERO — full-screen scroll-pinned sequence */}
