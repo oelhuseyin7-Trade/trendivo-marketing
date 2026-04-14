@@ -42,6 +42,7 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-2xl font-display font-bold tracking-tighter text-white hover:opacity-80 transition-opacity"
           >
             TRENDIVO<span className="text-primary">.</span>
