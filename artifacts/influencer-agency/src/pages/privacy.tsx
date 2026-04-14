@@ -93,8 +93,8 @@ export default function Privacy() {
               </ul>
               <p className="mt-3">
                 To exercise any of these rights, contact us at{" "}
-                <a href="mailto:helpteam.trendivo@gmail.com" className="text-primary hover:underline">
-                  helpteam.trendivo@gmail.com
+                <a href="mailto:trendivo.marketingima@gmail.com" className="text-primary hover:underline">
+                  trendivo.marketingima@gmail.com
                 </a>.
               </p>
             </section>
