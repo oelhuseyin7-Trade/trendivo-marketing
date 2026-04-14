@@ -133,8 +133,8 @@ export default function Terms() {
               <h2 className="text-xl font-semibold text-white mb-3">12. Contact</h2>
               <p>
                 For questions about these Terms, please contact us at{" "}
-                <a href="mailto:helpteam.trendivo@gmail.com" className="text-primary hover:underline">
-                  helpteam.trendivo@gmail.com
+                <a href="mailto:trendivo.marketingima@gmail.com" className="text-primary hover:underline">
+                  trendivo.marketingima@gmail.com
                 </a>.
               </p>
             </section>
