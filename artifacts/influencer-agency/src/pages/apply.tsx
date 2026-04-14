@@ -369,9 +369,9 @@ export default function Apply() {
                 <div className="w-20 h-20 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Application Received!</h2>
+                <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Application Sent!</h2>
                 <p className="text-white/60 text-lg mb-8 max-w-md mx-auto">
-                  Thank you for applying to Trendivo Marketing Agency. Our team will review your application and get back to you within 3-5 business days.
+                  We've received your application and will review it shortly. Our team will get back to you within 3-5 business days.
                 </p>
                 <Button 
                   onClick={() => window.location.href = '/'}

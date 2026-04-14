@@ -81,7 +81,7 @@ router.post("/applications", async (req, res) => {
 
     await transporter.sendMail({
       from: `"Trendivo Marketing" <${gmailUser}>`,
-      to: "o.elhuseyin7@gmail.com",
+      to: "trendivo.marketingima@gmail.com",
       subject: `New ${role} Application — ${applicantName}`,
       html: formatApplicationEmail(data),
     });
