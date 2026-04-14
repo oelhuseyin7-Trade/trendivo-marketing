@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, UserCircle, Briefcase, ChevronLeft, Loader2 } from "lucide-react";
-import { Layout } from "@/components/Layout";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -47,8 +48,14 @@ export default function Apply() {
   };
 
   return (
-    <Layout>
-      <div className="flex-1 flex items-center justify-center py-16 px-6">
+    <div className="min-h-screen flex flex-col bg-background text-foreground relative overflow-hidden">
+      <Navbar />
+
+      {/* Decorative background blurs */}
+      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/20 blur-[150px] rounded-full pointer-events-none" />
+      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-accent/10 blur-[150px] rounded-full pointer-events-none" />
+
+      <main className="flex-1 flex items-center justify-center pt-32 pb-24 px-6 relative z-10">
         <div className="w-full max-w-3xl">
           <AnimatePresence mode="wait">
             {/* STEP 1: ROLE SELECTION */}
@@ -377,7 +384,9 @@ export default function Apply() {
             )}
           </AnimatePresence>
         </div>
-      </div>
-    </Layout>
+      </main>
+
+      <Footer />
+    </div>
   );
 }
