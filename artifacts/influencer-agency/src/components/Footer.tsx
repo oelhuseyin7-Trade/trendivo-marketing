@@ -39,8 +39,8 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-6">Connect</h3>
             <ul className="space-y-4">
               <li>
-                <a href="mailto:helpteam.trendivo@gmail.com" className="text-white/60 hover:text-white transition-colors flex items-center gap-2">
-                  <Mail className="w-4 h-4" /> helpteam.trendivo@gmail.com
+                <a href="mailto:trendivo.marketingima@gmail.com" className="text-white/60 hover:text-white transition-colors flex items-center gap-2">
+                  <Mail className="w-4 h-4" /> trendivo.marketingima@gmail.com
                 </a>
               </li>
               <li>

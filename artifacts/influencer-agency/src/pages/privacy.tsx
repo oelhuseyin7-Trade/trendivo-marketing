@@ -59,8 +59,8 @@ export default function Privacy() {
                 We retain your application data for as long as necessary to process your application
                 and fulfil any active partnerships. You may request deletion of your data at any time
                 by contacting us at{" "}
-                <a href="mailto:helpteam.trendivo@gmail.com" className="text-primary hover:underline">
-                  helpteam.trendivo@gmail.com
+                <a href="mailto:trendivo.marketingima@gmail.com" className="text-primary hover:underline">
+                  trendivo.marketingima@gmail.com
                 </a>.
               </p>
             </section>
