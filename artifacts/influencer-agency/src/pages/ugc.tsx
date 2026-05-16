@@ -16,7 +16,7 @@ const stats = [
 const packages = [
   {
     tag: "STARTER",
-    name: "Beauty UGC Test Pack",
+    name: "UGC Test Pack",
     price: "$400 – $750 CAD",
     delivery: "14–18 business days",
     creators: "3–5 creators",
@@ -30,7 +30,7 @@ const packages = [
       "Ad usage rights 12 months",
       "1 round of revisions",
       "Ready for TikTok Reels & paid ads",
-      "Creator beauty-niche matched",
+      "Niche-matched creators",
     ],
   },
   {
@@ -79,8 +79,8 @@ const alwaysIncluded = [
     desc: "Use every video in paid ads, organic posts, your website, and email with no extra licensing fees.",
   },
   {
-    title: "Beauty-Niche Matched Creators",
-    desc: "All creators are selected specifically for the beauty space: skincare, makeup, wellness.",
+    title: "Niche-Matched Creators",
+    desc: "All creators are selected specifically for your niche, aesthetic, and target audience.",
   },
   {
     title: "Hook + Script Guidance",
@@ -109,7 +109,7 @@ const steps = [
   {
     number: "02",
     title: "Creator Selection",
-    desc: "We hand-pick beauty micro-creators from our network who match your niche, aesthetic, and demographic. You can approve the lineup before we start.",
+    desc: "We hand-pick micro-creators from our network who match your niche, aesthetic, and demographic. You can approve the lineup before we start.",
   },
   {
     number: "03",
@@ -226,7 +226,7 @@ export default function UGC() {
               UGC Services
             </span>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-5 leading-tight">
-              Beauty UGC That Actually{" "}
+              UGC That Actually{" "}
               <span className="text-primary">Converts</span>
             </h1>
             <p className="text-white/60 text-xl mb-12">
