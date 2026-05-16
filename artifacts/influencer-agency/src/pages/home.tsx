@@ -76,27 +76,29 @@ export default function Home() {
                 The go-to influencer marketing network for beauty brands. Skincare, makeup, wellness — we connect you with creators who move product.
               </p>
               
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <Link href="/ugc">
-                  <LiquidButton size="xl" className="text-white rounded-full border border-white/20 w-full sm:w-auto">
-                    UGC Services
-                  </LiquidButton>
-                </Link>
-                <Link href="/apply">
-                  <LiquidButton size="xl" className="bg-primary/80 text-white rounded-full border border-primary/40 font-semibold glow-primary glow-primary-hover w-full sm:w-auto">
-                    Apply Now
-                  </LiquidButton>
-                </Link>
+              <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                  <Link href="/ugc">
+                    <LiquidButton size="xl" className="text-white rounded-full border border-white/20 w-full sm:w-auto">
+                      UGC Services
+                    </LiquidButton>
+                  </Link>
+                  <Link href="/apply">
+                    <LiquidButton size="xl" className="bg-primary/80 text-white rounded-full border border-primary/40 font-semibold glow-primary glow-primary-hover w-full sm:w-auto">
+                      Apply Now
+                    </LiquidButton>
+                  </Link>
+                  <Link href="/influencer-marketing">
+                    <LiquidButton size="xl" className="text-white rounded-full border border-white/20 w-full sm:w-auto">
+                      Influencer Marketing Services
+                    </LiquidButton>
+                  </Link>
+                </div>
                 <a href="#how-it-works">
-                  <LiquidButton size="xl" className="text-white rounded-full border border-white/20 w-full sm:w-auto">
+                  <LiquidButton size="xl" className="text-white rounded-full border border-white/20">
                     How it works
                   </LiquidButton>
                 </a>
-                <Link href="/influencer-marketing">
-                  <LiquidButton size="xl" className="text-white rounded-full border border-white/20 w-full sm:w-auto">
-                    Influencer Marketing Services
-                  </LiquidButton>
-                </Link>
               </div>
             </motion.div>
           </div>
