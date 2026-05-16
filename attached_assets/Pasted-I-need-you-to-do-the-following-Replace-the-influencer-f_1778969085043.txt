@@ -1,0 +1,50 @@
+I need you to do the following:
+
+Replace the influencer form fields with these exact fields:
+
+Full Name (required)
+Email Address (required)
+Phone Number / WhatsApp (required)
+Country & Timezone (required)
+Age (optional)
+Main Platforms & Handles - text field where they describe each platform and handle (required)
+Total Followers Per Platform (required)
+Average Views Per Video (required)
+Engagement Rate (optional)
+Audience Location e.g. USA, Canada (required)
+Niche / What is your content about (required)
+Have you worked with brands before? Yes / No (required)
+Content types - checkboxes: UGC only, Sponsored posts, Affiliate content, Product reviews, All of the above (required)
+Typical rates (optional)
+Open to: checkboxes for Commission deals, Gifted collaborations, Paid campaigns (required)
+Turnaround time for content delivery (required)
+Why do you want to work with us? (required)
+How did you hear about us? (required)
+Additional notes (optional)
+
+
+Replace the brand form fields with these exact fields:
+
+Brand Name (required)
+Website URL (required)
+Contact Name (required)
+Email Address (required)
+Phone Number / WhatsApp (required)
+Social Media Links (required)
+Describe your brand (required)
+What products are you promoting? (optional)
+What countries are you targeting? (required)
+Campaign Goals - checkboxes: Brand awareness, Sales, UGC creation, TikTok growth, Instagram growth, Product launches, plus an "Other" text box where they can type a custom goal (required)
+Which platforms do you want creators for? checkboxes: TikTok, Instagram, YouTube, plus an "Other" text box where they can type a custom platform (required)
+Preferred creator size - radio buttons: Nano, Micro, Mid-tier, Large influencers (required)
+Desired campaign timeline (required)
+Campaign budget (optional)
+Have you worked with influencers before? Yes / No (required)
+Type of collaboration - checkboxes: UGC content, Sponsored posts, Affiliate campaigns, Long-term ambassadors (required)
+Any content guidelines or requirements? (optional)
+How did you hear about us? (required)
+Additional notes (optional)
+
+
+Replace the backend email sending - instead of saving to a database, use EmailJS to send all form submissions directly to trendivo.marketingima@gmail.com. Install the EmailJS browser package and use Service ID, Template ID and Public Key which I will provide after you make the changes.
+Update the validation schema in the hooks file to match all the new fields.

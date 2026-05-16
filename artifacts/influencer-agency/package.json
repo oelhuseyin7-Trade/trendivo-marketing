@@ -76,6 +76,7 @@
     "zod": "catalog:"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "motion": "^12.38.0",
     "three": "^0.183.2"
   }
