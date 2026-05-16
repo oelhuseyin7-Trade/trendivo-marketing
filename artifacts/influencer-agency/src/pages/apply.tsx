@@ -120,6 +120,11 @@ export default function Apply() {
     mode: "onChange",
   });
 
+  const goToStep = (s: Step) => {
+    setStep(s);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
   const handleRoleSelect = (role: "influencer" | "brand") => {
     setSelectedRole(role);
     form.reset({
@@ -130,13 +135,13 @@ export default function Apply() {
       platforms: role === "brand" ? [] : undefined,
       collaborationType: role === "brand" ? [] : undefined,
     } as ApplicationInput);
-    setTimeout(() => setStep(2), 300);
+    setTimeout(() => goToStep(2), 300);
   };
 
   const onSubmit = async (data: ApplicationInput) => {
     try {
       await submitMutation.mutateAsync(data);
-      setStep(3);
+      goToStep(3);
     } catch {
       alert("Something went wrong. Please try again.");
     }
@@ -186,7 +191,7 @@ export default function Apply() {
             {step === 2 && (
               <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
                 className="bg-card border border-white/10 rounded-3xl p-6 md:p-10 shadow-2xl">
-                <button onClick={() => setStep(1)} className="flex items-center text-sm text-white/50 hover:text-white mb-8 transition-colors">
+                <button onClick={() => goToStep(1)} className="flex items-center text-sm text-white/50 hover:text-white mb-8 transition-colors">
                   <ChevronLeft className="w-4 h-4 mr-1" /> Back
                 </button>
                 <h2 className="text-3xl font-display font-bold mb-2">
