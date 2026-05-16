@@ -46,7 +46,7 @@ export default function Home() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-white/80 mb-8 backdrop-blur-md">
                 <Sparkles className="w-4 h-4 text-primary" />
-                <span>The Premier Influencer Network</span>
+                <span>The Premier Beauty Influencer Network</span>
               </div>
               
               <h1 className="text-5xl sm:text-6xl md:text-8xl font-display font-extrabold tracking-tighter mb-8 leading-[1.1]">
@@ -73,8 +73,7 @@ export default function Home() {
               </h1>
               
               <p className="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                Join the most powerful influencer marketing network. Drive real results, 
-                reach real audiences, grow real income.
+                The go-to influencer marketing network for beauty brands. Skincare, makeup, wellness — we connect you with creators who move product.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -150,7 +149,7 @@ export default function Home() {
                 {
                   icon: Users,
                   title: "1. Apply",
-                  desc: "Fill out a quick application to join our exclusive network as a creator or brand."
+                  desc: "Fill out a quick application to join our exclusive beauty influencer network as a creator or brand."
                 },
                 {
                   icon: Sparkles,
@@ -227,7 +226,7 @@ export default function Home() {
                   },
                   {
                     q: "What niches do you work with?",
-                    a: "We work with all niches including fitness, fashion, tech, beauty, food, travel, gaming, and more."
+                    a: "We specialise in the beauty space — skincare, makeup, wellness, haircare, and fragrance. Brands outside of beauty are welcome to apply and we will reach out if we see a strong fit."
                   }
                 ].map((faq, i) => (
                   <AccordionItem key={i} value={`item-${i}`} className="border-white/10 px-2">
