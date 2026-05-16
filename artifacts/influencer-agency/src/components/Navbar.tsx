@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { name: "Home", url: "/", icon: Home },
   { name: "UGC Services", url: "/ugc", icon: Sparkles },
-  { name: "Influencer Marketing", url: "/influencer-marketing", icon: TrendingUp },
+  { name: "Influencer Marketing Services", url: "/influencer-marketing", icon: TrendingUp },
   { name: "How it Works", url: "/#how-it-works", icon: Zap },
   { name: "FAQ", url: "/#faq", icon: HelpCircle },
 ];
@@ -145,7 +145,7 @@ export function Navbar() {
               className={`text-2xl font-display font-medium ${location === "/influencer-marketing" ? "text-white" : "text-white/60"}`}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Influencer Marketing
+              Influencer Marketing Services
             </Link>
             <a
               href={location === "/" ? "#how-it-works" : "/#how-it-works"}

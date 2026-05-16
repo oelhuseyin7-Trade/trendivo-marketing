@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const stats = [
   { value: "79%", label: "of buyers trust UGC over brand ads" },
-  { value: "9.8x", label: "more impactful than influencer content" },
+  { value: "3", label: "flexible offers towards achieving your goals" },
   { value: "24–48h", label: "production start after onboarding" },
   { value: "100%", label: "usage rights included" },
 ];
