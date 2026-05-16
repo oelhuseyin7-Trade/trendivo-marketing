@@ -2,11 +2,10 @@ import { useMutation } from "@tanstack/react-query";
 import emailjs from "@emailjs/browser";
 import { z } from "zod";
 
-// ── EmailJS credentials ── fill these in after setup ──────────────────────────
-const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
-// ──────────────────────────────────────────────────────────────────────────────
+const EMAILJS_SERVICE_ID       = "service_y12eppu";
+const EMAILJS_CREATOR_TEMPLATE = "template_2y1fn88";
+const EMAILJS_BRAND_TEMPLATE   = "template_03b1plm";
+const EMAILJS_PUBLIC_KEY       = "NpaUjlfG4AUjoLT1-";
 
 // ─── Influencer schema ────────────────────────────────────────────────────────
 const influencerSchema = z.object({
@@ -61,97 +60,73 @@ const brandSchema = z.object({
 export const applicationSchema = z.discriminatedUnion("role", [influencerSchema, brandSchema]);
 export type ApplicationInput = z.infer<typeof applicationSchema>;
 
-// ─── Format data into a readable email body ───────────────────────────────────
-function formatMessage(data: ApplicationInput): string {
-  if (data.role === "influencer") {
-    return `
-CREATOR / INFLUENCER APPLICATION
-==================================
-Full Name:               ${data.fullName}
-Email:                   ${data.email}
-Phone / WhatsApp:        ${data.phone}
-Country & Timezone:      ${data.countryTimezone}
-Age:                     ${data.age || "—"}
-
-Platforms & Handles:     ${data.platformsHandles}
-Total Followers:         ${data.totalFollowersPerPlatform}
-Average Views:           ${data.averageViews}
-Engagement Rate:         ${data.engagementRate || "—"}
-Audience Location:       ${data.audienceLocation}
-Niche:                   ${data.niche}
-
-Worked With Brands:      ${data.workedWithBrands}
-Content Types:           ${data.contentTypes.join(", ")}
-Typical Rates:           ${data.typicalRates || "—"}
-Open To:                 ${data.openTo.join(", ")}
-Turnaround Time:         ${data.turnaroundTime}
-
-Why Work With Us:
-${data.whyWorkWithUs}
-
-How Did You Hear:        ${data.howDidYouHear}
-Additional Notes:        ${data.additionalNotes || "—"}
-    `.trim();
-  }
-
-  const goalsStr = data.campaignGoalsOther
-    ? [...data.campaignGoals, `Other: ${data.campaignGoalsOther}`].join(", ")
-    : data.campaignGoals.join(", ");
-
-  const platformsStr = data.platformsOther
-    ? [...data.platforms, `Other: ${data.platformsOther}`].join(", ")
-    : data.platforms.join(", ");
-
-  return `
-BRAND APPLICATION
-==================================
-Brand Name:              ${data.brandName}
-Website:                 ${data.websiteUrl}
-Contact Name:            ${data.contactName}
-Email:                   ${data.email}
-Phone / WhatsApp:        ${data.phone}
-Social Media Links:      ${data.socialMediaLinks}
-
-Brand Description:
-${data.brandDescription}
-
-Products Promoting:      ${data.productsPromoting || "—"}
-Target Countries:        ${data.targetCountries}
-Campaign Goals:          ${goalsStr}
-Platforms:               ${platformsStr}
-Preferred Creator Size:  ${data.preferredCreatorSize}
-Campaign Timeline:       ${data.campaignTimeline}
-Campaign Budget:         ${data.campaignBudget || "—"}
-
-Worked With Influencers: ${data.workedWithInfluencers}
-Collaboration Type:      ${data.collaborationType.join(", ")}
-Content Guidelines:      ${data.contentGuidelines || "—"}
-
-How Did You Hear:        ${data.howDidYouHear}
-Additional Notes:        ${data.additionalNotes || "—"}
-  `.trim();
-}
-
 // ─── Hook ─────────────────────────────────────────────────────────────────────
 export function useSubmitApplication() {
   return useMutation({
     mutationFn: async (data: ApplicationInput) => {
-      const subject = data.role === "influencer"
-        ? `New Creator Application — ${data.fullName}`
-        : `New Brand Application — ${data.brandName}`;
+      if (data.role === "influencer") {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_CREATOR_TEMPLATE,
+          {
+            full_name:              data.fullName,
+            reply_to:               data.email,
+            phone:                  data.phone,
+            country_timezone:       data.countryTimezone,
+            age:                    data.age || "—",
+            platforms_handles:      data.platformsHandles,
+            followers_per_platform: data.totalFollowersPerPlatform,
+            avg_views:              data.averageViews,
+            engagement_rate:        data.engagementRate || "—",
+            audience_location:      data.audienceLocation,
+            niche:                  data.niche,
+            worked_with_brands:     data.workedWithBrands,
+            content_types:          data.contentTypes.join(", "),
+            rates:                  data.typicalRates || "—",
+            open_to:                data.openTo.join(", "),
+            turnaround_time:        data.turnaroundTime,
+            why_join:               data.whyWorkWithUs,
+            how_heard:              data.howDidYouHear,
+            additional_notes:       data.additionalNotes || "—",
+          },
+          EMAILJS_PUBLIC_KEY,
+        );
+      } else {
+        const goalsStr = data.campaignGoalsOther
+          ? [...data.campaignGoals, `Other: ${data.campaignGoalsOther}`].join(", ")
+          : data.campaignGoals.join(", ");
 
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          to_email: "trendivo.marketingima@gmail.com",
-          subject,
-          message: formatMessage(data),
-          from_name: data.role === "influencer" ? data.fullName : data.brandName,
-          reply_to: data.email,
-        },
-        EMAILJS_PUBLIC_KEY,
-      );
+        const platformsStr = data.platformsOther
+          ? [...data.platforms, `Other: ${data.platformsOther}`].join(", ")
+          : data.platforms.join(", ");
+
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_BRAND_TEMPLATE,
+          {
+            from_name:          data.brandName,
+            website:            data.websiteUrl,
+            contact_name:       data.contactName,
+            reply_to:           data.email,
+            phone:              data.phone,
+            social_links:       data.socialMediaLinks,
+            brand_description:  data.brandDescription,
+            products:           data.productsPromoting || "—",
+            target_countries:   data.targetCountries,
+            campaign_goals:     goalsStr,
+            platforms:          platformsStr,
+            creator_size:       data.preferredCreatorSize,
+            timeline:           data.campaignTimeline,
+            budget:             data.campaignBudget || "—",
+            worked_before:      data.workedWithInfluencers,
+            collab_type:        data.collaborationType.join(", "),
+            content_guidelines: data.contentGuidelines || "—",
+            how_heard:          data.howDidYouHear,
+            additional_notes:   data.additionalNotes || "—",
+          },
+          EMAILJS_PUBLIC_KEY,
+        );
+      }
     },
   });
 }
