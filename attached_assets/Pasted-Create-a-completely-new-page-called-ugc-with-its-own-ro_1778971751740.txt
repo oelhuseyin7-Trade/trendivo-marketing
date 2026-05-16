@@ -1,0 +1,69 @@
+Create a completely new page called /ugc with its own route. This page should match the existing site's dark theme, fonts, colors and style exactly. Add a link to this page in the navigation bar called "UGC Services". Here is all the content:
+Page headline: Beauty UGC That Actually Converts
+Subheadline: Micro-creator content for TikTok, Reels & Paid Ads
+4 stats to show at the top:
+
+79% — of buyers trust UGC over brand ads
+9.8x — more impactful than influencer content
+24–48h — production start after onboarding
+100% — usage rights included
+
+3 pricing packages:
+STARTER — Beauty UGC Test Pack
+
+Price: $400 – $750 CAD
+Delivery: 14–18 business days | 3–5 creators | 5 total videos
+Includes: 5 short-form UGC videos (15–60s), Hook + full script guidance, Multiple hook variations to test, Ad usage rights 12 months, 1 round of revisions, Ready for TikTok Reels & paid ads, Creator beauty-niche matched
+Best for: brands testing UGC for the first time
+
+MOST POPULAR — Growth Content System
+
+Price: $800 – $1,800 CAD
+Delivery: 3–5 weeks | 5–8 creators | 10–15 videos
+Includes: 10–15 UGC videos across multiple angles, Multiple hooks & script variations, Structured content strategy included, Ad + organic use rights 12 months, 2 rounds of revisions, Content calendar / posting guidance, Optimised for scaling winning creatives
+Best for: brands ready to scale with proven content
+
+SCALE — Scale System
+
+Price: $2,000 – $5,000+ CAD/mo
+Delivery: Monthly pipeline | 10–20 creators | 20–40+ videos/mo
+Includes: 20–40+ videos per month, Ongoing creator roster management, Continuous ad creative testing, Full usage rights perpetual, Unlimited revision rounds, Monthly performance debrief, Priority onboarding & support
+Best for: brands running always-on paid social at scale
+
+What's always included section — 6 points:
+
+Full Ad Usage Rights — Use every video in paid ads, organic posts, your website, and email with no extra licensing fees
+Beauty-Niche Matched Creators — All creators are selected specifically for the beauty space: skincare, makeup, wellness
+Hook + Script Guidance — We craft the hooks and scripts so creators know exactly what to say and how to say it
+Revision Policy — Every package includes at least one revision round. If a video misses the brief we fix it
+Ready-to-Post Deliverables — Videos are delivered edited, captioned, and formatted for TikTok & Reels with no extra editing needed
+Brand Onboarding Brief — We start every project with a detailed brief so creators fully understand your product and audience
+
+How It Works — 5 steps:
+
+Brand Onboarding — You fill out a quick onboarding brief with your product details, target audience, tone, and goals. Takes about 10 minutes and sets up everything
+Creator Selection — We hand-pick beauty micro-creators from our network who match your niche, aesthetic, and demographic. You can approve the lineup before we start
+Content Creation — Creators receive your product brief and script guidance, film and edit the videos, and submit for your review. We manage all creator communication
+Review & Revisions — You review all deliverables. If any video needs changes we handle the revision with the creator
+Final Delivery — All final videos are delivered in a shared folder ready for paid ads or organic posting. You own full usage rights from day one
+
+Delivery timelines table:
+
+Test Pack: Onboarding 1–2 days, Creator Selection 2–3 days, Filming & Editing 5–7 days, Review + Revisions 3–5 days, Total 14–18 business days
+Growth System: Onboarding 1–2 days, Creator Selection 3–4 days, Filming & Editing 10–14 days, Review + Revisions 5–7 days, Total 3–5 weeks
+Scale System: Onboarding 1–2 days, Creator Selection ongoing roster, Filming monthly pipeline, Review rolling, Total monthly delivery cycle
+
+FAQ section — 6 questions:
+
+Who ships the product to the creators? — You ship directly to each creator. We provide shipping details after creator selection is confirmed. Digital products can be delivered instantly
+How long do I own the content? — Test Pack and Growth System include 12-month ad usage rights. Scale System clients receive perpetual forever usage rights
+Can I approve the creators before you start? — Yes. After onboarding we send you the proposed creator lineup and you can approve or request swaps before any filming begins
+What if I don't like a video? — Every package includes at least one full revision round. Test Pack includes 1 round, Growth System includes 2, Scale System has unlimited revisions
+What platforms is this content made for? — All videos are natively formatted for TikTok and Instagram Reels vertical 9:16. We can also format for Meta feed ads upon request at no extra charge
+Do I need to provide a script? — No. Script writing and hook development is included in every package. You just share your product details, key benefits, and target audience
+
+Bottom CTA section:
+
+Headline: Ready to Create Content That Converts?
+Subtext: We build your custom creator set and begin production within 24–48 hours of onboarding
+Button saying "Apply Now" that links to the /apply page

@@ -1,12 +1,13 @@
 import { Link, useLocation } from "wouter";
 import { useEffect, useState } from "react";
-import { Menu, X, Home, Zap, HelpCircle } from "lucide-react";
+import { Menu, X, Home, Zap, HelpCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", url: "/", icon: Home },
+  { name: "UGC Services", url: "/ugc", icon: Sparkles },
   { name: "How it Works", url: "/#how-it-works", icon: Zap },
   { name: "FAQ", url: "/#faq", icon: HelpCircle },
 ];
@@ -127,8 +128,16 @@ export function Navbar() {
             <Link
               href="/"
               className={`text-2xl font-display font-medium ${location === "/" ? "text-white" : "text-white/60"}`}
+              onClick={() => setMobileMenuOpen(false)}
             >
               Home
+            </Link>
+            <Link
+              href="/ugc"
+              className={`text-2xl font-display font-medium ${location === "/ugc" ? "text-white" : "text-white/60"}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              UGC Services
             </Link>
             <a
               href={location === "/" ? "#how-it-works" : "/#how-it-works"}
