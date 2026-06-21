@@ -10,6 +10,7 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { WebGLShader } from "@/components/ui/web-gl-shader";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { CheckCircle2, Phone, CalendarCheck, PhoneMissed, Clock, Stethoscope, Smile, Droplets, Wind, HardHat, Sparkles, Leaf, Building2, MoveRight } from "lucide-react";
+import { Star } from "lucide-react";
 
 const services = [
   {
@@ -154,6 +155,39 @@ export default function Home() {
                     See How It Works
                   </LiquidButton>
                 </a>
+              </div>
+
+              {/* Social proof badge */}
+              <div className="mt-8 flex justify-center">
+                <div className="flex items-center gap-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-4 py-2 shadow-lg">
+                  <div className="flex -space-x-2">
+                    {[
+                      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&fit=crop&crop=face",
+                      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=40&h=40&fit=crop&crop=face",
+                      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+                      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face",
+                    ].map((src, i) => (
+                      <img
+                        key={i}
+                        src={src}
+                        width={28}
+                        height={28}
+                        alt={`Business owner ${i + 1}`}
+                        className="rounded-full ring-2 ring-background object-cover w-7 h-7"
+                      />
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <p className="text-xs text-white/60">
+                      <strong className="font-semibold text-white">High quality AI receptionists</strong> assured by local business owners
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
