@@ -44,9 +44,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:" className="text-white/60 hover:text-white transition-colors flex items-center gap-2">
-                  <Phone className="w-4 h-4" /> Book a discovery call
-                </a>
+                <Link href="/apply" className="text-white/60 hover:text-white transition-colors flex items-center gap-2">
+                  <Phone className="w-4 h-4" /> Get a free AI demo
+                </Link>
               </li>
             </ul>
           </div>
