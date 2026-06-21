@@ -2,21 +2,20 @@ import { Link, useLocation } from "wouter";
 import { useEffect, useState } from "react";
 import { Menu, X, Home, Zap, HelpCircle, Phone, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { ExpandableTabs } from "@/components/ui/expandable-tabs";
 
 const navItems = [
-  { name: "Home",         url: "/",              icon: Home },
-  { name: "Services",     url: "/#services",     icon: Building2 },
-  { name: "How it Works", url: "/#how-it-works", icon: Zap },
-  { name: "FAQ",          url: "/#faq",          icon: HelpCircle },
+  { title: "Home",         icon: Home,      url: "/" },
+  { title: "Services",     icon: Building2, url: "/#services" },
+  { title: "How it Works", icon: Zap,       url: "/#how-it-works" },
+  { title: "FAQ",          icon: HelpCircle,url: "/#faq" },
 ];
 
 export function Navbar() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("Home");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -26,9 +25,24 @@ export function Navbar() {
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    const matched = navItems.find((item) => item.url === location);
-    if (matched) setActiveTab(matched.name);
   }, [location]);
+
+  const handleTabChange = (index: number | null) => {
+    if (index === null) return;
+    const item = navItems[index];
+    if (!item) return;
+    if (item.url.startsWith("/#")) {
+      const hash = item.url.slice(1);
+      if (location === "/") {
+        const el = document.querySelector(hash);
+        el?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.location.href = item.url;
+      }
+    } else {
+      navigate(item.url);
+    }
+  };
 
   return (
     <>
@@ -49,52 +63,13 @@ export function Navbar() {
             TRENDIVO<span className="text-primary"> AI</span>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav — ExpandableTabs */}
           <nav className="hidden md:flex items-center">
-            <div className="flex items-center gap-1 bg-white/5 border border-white/10 backdrop-blur-lg py-1 px-1 rounded-full">
-              {navItems.map((item) => {
-                const isActive = activeTab === item.name;
-                const isHashLink = item.url.includes("#");
-
-                const linkContent = (
-                  <span
-                    key={item.name}
-                    onClick={() => setActiveTab(item.name)}
-                    className={cn(
-                      "relative cursor-pointer text-sm font-semibold px-5 py-2 rounded-full transition-colors select-none",
-                      "text-white/60 hover:text-white",
-                      isActive && "text-white"
-                    )}
-                  >
-                    {item.name}
-                    {isActive && (
-                      <motion.div
-                        layoutId="lamp"
-                        className="absolute inset-0 w-full bg-primary/10 rounded-full -z-10"
-                        initial={false}
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                      >
-                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full">
-                          <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />
-                          <div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1" />
-                          <div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2" />
-                        </div>
-                      </motion.div>
-                    )}
-                  </span>
-                );
-
-                return isHashLink ? (
-                  <a key={item.name} href={item.url}>
-                    {linkContent}
-                  </a>
-                ) : (
-                  <Link key={item.name} href={item.url}>
-                    {linkContent}
-                  </Link>
-                );
-              })}
-            </div>
+            <ExpandableTabs
+              tabs={navItems}
+              activeColor="text-primary"
+              onChange={handleTabChange}
+            />
           </nav>
 
           {/* CTA Button */}
