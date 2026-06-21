@@ -10,18 +10,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { demoSchema, type DemoInput, useSubmitDemo } from "@/hooks/use-applications";
 
 const inputCls = "bg-background border-white/10 h-12";
 const textareaCls = "bg-background border-white/10 min-h-[100px]";
 
 const STEPS = [
-  { number: 1, label: "Business Info",   icon: Building2 },
-  { number: 2, label: "Call Handling",   icon: Phone },
-  { number: 3, label: "Booking",         icon: CalendarCheck },
-  { number: 4, label: "Services",        icon: Settings },
-  { number: 5, label: "Goals",           icon: Target },
+  { number: 1, label: "Business Info", icon: Building2 },
+  { number: 2, label: "Call Handling", icon: Phone },
+  { number: 3, label: "Booking",       icon: CalendarCheck },
+  { number: 4, label: "Services",      icon: Settings },
+  { number: 5, label: "Goals",         icon: Target },
 ];
 
 const STEP_FIELDS: Record<number, (keyof DemoInput)[]> = {
@@ -40,37 +39,61 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-function RadioCard({ value, current, label, onSelect }: { value: string; current: string; label: string; onSelect: (v: string) => void }) {
+function OptionBtn({ value, current, label, onSelect }: {
+  value: string; current: string; label: string; onSelect: (v: string) => void;
+}) {
+  const selected = current === value;
   return (
-    <label
-      className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-colors ${
-        current === value ? "border-primary bg-primary/10" : "border-white/10 bg-background hover:bg-white/5"
-      }`}
+    <button
+      type="button"
       onClick={() => onSelect(value)}
+      className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-colors text-left w-full ${
+        selected ? "border-primary bg-primary/10" : "border-white/10 bg-background hover:bg-white/5"
+      }`}
     >
-      <RadioGroupItem value={value} />
+      <span className={`w-4 h-4 rounded-full border-2 flex-shrink-0 transition-colors ${
+        selected ? "border-primary bg-primary" : "border-white/30 bg-transparent"
+      }`} />
       <span className="text-sm">{label}</span>
-    </label>
+    </button>
   );
 }
 
-function YesNo({ label, value, onChange, error }: { label: string; value: string; onChange: (v: "yes" | "no") => void; error?: string }) {
+function OptionGrid({ options, current, onSelect, cols = 2 }: {
+  options: string[]; current: string; onSelect: (v: string) => void; cols?: number;
+}) {
+  return (
+    <div className={`grid gap-2 ${cols === 4 ? "grid-cols-2 sm:grid-cols-4" : "sm:grid-cols-2"}`}>
+      {options.map((opt) => (
+        <OptionBtn key={opt} value={opt} current={current} label={opt} onSelect={onSelect} />
+      ))}
+    </div>
+  );
+}
+
+function YesNo({ label, value, onChange, error }: {
+  label: string; value: string; onChange: (v: "yes" | "no") => void; error?: string;
+}) {
   return (
     <div className="space-y-2">
       <p className="text-sm font-medium">{label} <span className="text-red-500">*</span></p>
-      <RadioGroup value={value} onValueChange={onChange} className="flex gap-4">
+      <div className="flex gap-4">
         {(["yes", "no"] as const).map((v) => (
-          <label
+          <button
             key={v}
+            type="button"
+            onClick={() => onChange(v)}
             className={`flex items-center gap-3 px-6 py-3 rounded-lg border cursor-pointer flex-1 justify-center transition-colors ${
               value === v ? "border-primary bg-primary/10" : "border-white/10 bg-background hover:bg-white/5"
             }`}
           >
-            <RadioGroupItem value={v} />
+            <span className={`w-4 h-4 rounded-full border-2 flex-shrink-0 transition-colors ${
+              value === v ? "border-primary bg-primary" : "border-white/30 bg-transparent"
+            }`} />
             <span className="capitalize font-medium">{v}</span>
-          </label>
+          </button>
         ))}
-      </RadioGroup>
+      </div>
       {error && <p className="text-sm text-red-500">{error}</p>}
     </div>
   );
@@ -92,7 +115,11 @@ function CheckboxGrid({ label, options, value, onChange, error }: {
               value.includes(opt) ? "border-primary bg-primary/10" : "border-white/10 bg-background hover:bg-white/5"
             }`}
           >
-            <Checkbox checked={value.includes(opt)} onCheckedChange={() => toggle(opt)} className="border-white/30" />
+            <Checkbox
+              checked={value.includes(opt)}
+              onCheckedChange={() => toggle(opt)}
+              className="border-white/30"
+            />
             <span className="text-sm">{opt}</span>
           </label>
         ))}
@@ -174,7 +201,6 @@ export default function Apply() {
       <main className="flex-1 flex items-start justify-center pt-32 pb-24 px-6 relative z-10">
         <div className="w-full max-w-2xl">
 
-          {/* Header */}
           <div className="text-center mb-10">
             <h1 className="text-4xl md:text-5xl font-display font-bold mb-3">Get Your Free AI Receptionist Demo</h1>
             <p className="text-white/50 text-lg max-w-xl mx-auto">
@@ -188,23 +214,27 @@ export default function Apply() {
             {STEPS.map((s) => {
               const Icon = s.icon;
               const active = step === s.number;
-              const done = step > s.number;
+              const completed = step > s.number;
               return (
                 <div key={s.number} className="flex flex-col items-center gap-2 z-10">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${
-                    done    ? "bg-primary border-primary"
-                    : active ? "bg-primary/20 border-primary"
-                    : "bg-background border-white/20"
+                    completed ? "bg-primary border-primary"
+                    : active   ? "bg-primary/20 border-primary"
+                    :            "bg-background border-white/20"
                   }`}>
-                    {done ? <CheckCircle2 className="w-5 h-5 text-white" /> : <Icon className={`w-5 h-5 ${active ? "text-primary" : "text-white/30"}`} />}
+                    {completed
+                      ? <CheckCircle2 className="w-5 h-5 text-white" />
+                      : <Icon className={`w-5 h-5 ${active ? "text-primary" : "text-white/30"}`} />
+                    }
                   </div>
-                  <span className={`text-xs font-semibold hidden sm:block ${active ? "text-white" : "text-white/30"}`}>{s.label}</span>
+                  <span className={`text-xs font-semibold hidden sm:block ${active ? "text-white" : "text-white/30"}`}>
+                    {s.label}
+                  </span>
                 </div>
               );
             })}
           </div>
 
-          {/* Form Card */}
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <AnimatePresence mode="wait">
@@ -257,18 +287,16 @@ export default function Apply() {
                         </FormItem>
                       )} />
 
-                      <FormField control={form.control} name="industry" render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Industry <span className="text-red-500">*</span></FormLabel>
-                          <FormControl>
-                            <RadioGroup value={field.value} onValueChange={field.onChange} className="grid sm:grid-cols-2 gap-2">
-                              {["Medical Clinic", "Dental Clinic", "Plumbing", "HVAC", "Roofing", "Cleaning", "Landscaping", "Real Estate", "Law", "Other"].map((ind) => (
-                                <RadioCard key={ind} value={ind} current={field.value ?? ""} label={ind} onSelect={field.onChange} />
-                              ))}
-                            </RadioGroup>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
+                      <Controller control={form.control} name="industry" render={({ field }) => (
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium">Industry <span className="text-red-500">*</span></p>
+                          <OptionGrid
+                            options={["Medical Clinic", "Dental Clinic", "Plumbing", "HVAC", "Roofing", "Cleaning", "Landscaping", "Real Estate", "Law", "Other"]}
+                            current={field.value ?? ""}
+                            onSelect={field.onChange}
+                          />
+                          {errors.industry && <p className="text-sm text-red-500">{errors.industry.message}</p>}
+                        </div>
                       )} />
                     </>
                   )}
@@ -278,46 +306,42 @@ export default function Apply() {
                     <>
                       <SectionTitle>Current Call Handling</SectionTitle>
 
-                      <FormField control={form.control} name="callHandling" render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>How are calls currently handled? <span className="text-red-500">*</span></FormLabel>
-                          <FormControl>
-                            <RadioGroup value={field.value} onValueChange={field.onChange} className="grid sm:grid-cols-2 gap-2">
-                              {["Owner", "Staff", "Voicemail", "Receptionist", "Call center", "Other"].map((opt) => (
-                                <RadioCard key={opt} value={opt} current={field.value ?? ""} label={opt} onSelect={field.onChange} />
-                              ))}
-                            </RadioGroup>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
+                      <Controller control={form.control} name="callHandling" render={({ field }) => (
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium">How are calls currently handled? <span className="text-red-500">*</span></p>
+                          <OptionGrid
+                            options={["Owner", "Staff", "Voicemail", "Receptionist", "Call center", "Other"]}
+                            current={field.value ?? ""}
+                            onSelect={field.onChange}
+                          />
+                          {errors.callHandling && <p className="text-sm text-red-500">{errors.callHandling.message}</p>}
+                        </div>
                       )} />
 
-                      <FormField control={form.control} name="callsPerWeek" render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>How many calls per week? <span className="text-red-500">*</span></FormLabel>
-                          <FormControl>
-                            <RadioGroup value={field.value} onValueChange={field.onChange} className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                              {["0–25", "25–50", "50–100", "100+"].map((opt) => (
-                                <RadioCard key={opt} value={opt} current={field.value ?? ""} label={opt} onSelect={field.onChange} />
-                              ))}
-                            </RadioGroup>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
+                      <Controller control={form.control} name="callsPerWeek" render={({ field }) => (
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium">How many calls per week? <span className="text-red-500">*</span></p>
+                          <OptionGrid
+                            options={["0–25", "25–50", "50–100", "100+"]}
+                            current={field.value ?? ""}
+                            onSelect={field.onChange}
+                            cols={4}
+                          />
+                          {errors.callsPerWeek && <p className="text-sm text-red-500">{errors.callsPerWeek.message}</p>}
+                        </div>
                       )} />
 
-                      <FormField control={form.control} name="missCalls" render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Do you miss calls? <span className="text-red-500">*</span></FormLabel>
-                          <FormControl>
-                            <RadioGroup value={field.value} onValueChange={field.onChange} className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                              {["Frequently", "Sometimes", "Rarely", "Never"].map((opt) => (
-                                <RadioCard key={opt} value={opt} current={field.value ?? ""} label={opt} onSelect={field.onChange} />
-                              ))}
-                            </RadioGroup>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
+                      <Controller control={form.control} name="missCalls" render={({ field }) => (
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium">Do you miss calls? <span className="text-red-500">*</span></p>
+                          <OptionGrid
+                            options={["Frequently", "Sometimes", "Rarely", "Never"]}
+                            current={field.value ?? ""}
+                            onSelect={field.onChange}
+                            cols={4}
+                          />
+                          {errors.missCalls && <p className="text-sm text-red-500">{errors.missCalls.message}</p>}
+                        </div>
                       )} />
 
                       <Controller control={form.control} name="afterHoursCalls" render={({ field }) => (
@@ -346,17 +370,15 @@ export default function Apply() {
                       )} />
 
                       {form.watch("customersBook") === "yes" && (
-                        <FormField control={form.control} name="bookingSystem" render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>What system do you use? <span className="text-white/40 text-xs">(optional)</span></FormLabel>
-                            <FormControl>
-                              <RadioGroup value={field.value ?? ""} onValueChange={field.onChange} className="grid sm:grid-cols-2 gap-2">
-                                {["Google Calendar", "Calendly", "Jane App", "Jobber", "Housecall Pro", "Other"].map((opt) => (
-                                  <RadioCard key={opt} value={opt} current={field.value ?? ""} label={opt} onSelect={field.onChange} />
-                                ))}
-                              </RadioGroup>
-                            </FormControl>
-                          </FormItem>
+                        <Controller control={form.control} name="bookingSystem" render={({ field }) => (
+                          <div className="space-y-2">
+                            <p className="text-sm font-medium">What system do you use? <span className="text-white/40 text-xs">(optional)</span></p>
+                            <OptionGrid
+                              options={["Google Calendar", "Calendly", "Jane App", "Jobber", "Housecall Pro", "Other"]}
+                              current={field.value ?? ""}
+                              onSelect={field.onChange}
+                            />
+                          </div>
                         )} />
                       )}
                     </>
@@ -421,7 +443,7 @@ export default function Apply() {
                     </>
                   )}
 
-                  {/* Navigation Buttons */}
+                  {/* Navigation */}
                   <div className="flex items-center justify-between pt-4 border-t border-white/10">
                     {step > 1 ? (
                       <button
@@ -447,11 +469,10 @@ export default function Apply() {
                         disabled={submitMutation.isPending}
                         className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 font-semibold"
                       >
-                        {submitMutation.isPending ? (
-                          <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending…</>
-                        ) : (
-                          "Get My Free Demo"
-                        )}
+                        {submitMutation.isPending
+                          ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending…</>
+                          : "Get My Free Demo"
+                        }
                       </Button>
                     )}
                   </div>

@@ -14,7 +14,7 @@ export default function Terms() {
         >
           <p className="text-sm text-primary font-medium uppercase tracking-widest mb-3">Legal</p>
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">Terms of Service</h1>
-          <p className="text-white/50 text-sm mb-12">Last updated: April 14, 2026</p>
+          <p className="text-white/50 text-sm mb-12">Last updated: June 25, 2026</p>
 
           <div className="space-y-10 text-white/70 leading-relaxed">
             <section>
