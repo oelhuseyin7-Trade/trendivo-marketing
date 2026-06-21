@@ -64,7 +64,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav — ExpandableTabs */}
-          <nav className="hidden md:flex items-center">
+          <nav className="hidden nav:flex items-center">
             <ExpandableTabs
               tabs={navItems}
               activeColor="text-primary"
@@ -73,7 +73,7 @@ export function Navbar() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden nav:block">
             <Link href="/apply">
               <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 glow-primary glow-primary-hover transition-all duration-300 font-semibold">
                 <Phone className="w-4 h-4 mr-2" />
@@ -84,7 +84,7 @@ export function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden text-white p-2"
+            className="nav:hidden text-white p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
