@@ -1,16 +1,15 @@
 import { Link, useLocation } from "wouter";
 import { useEffect, useState } from "react";
-import { Menu, X, Home, Zap, HelpCircle, Sparkles, TrendingUp } from "lucide-react";
+import { Menu, X, Home, Zap, HelpCircle, Phone, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Home", url: "/", icon: Home },
-  { name: "UGC Services", url: "/ugc", icon: Sparkles },
-  { name: "Influencer Marketing Services", url: "/influencer-marketing", icon: TrendingUp },
+  { name: "Home",         url: "/",              icon: Home },
+  { name: "Services",     url: "/#services",     icon: Building2 },
   { name: "How it Works", url: "/#how-it-works", icon: Zap },
-  { name: "FAQ", url: "/#faq", icon: HelpCircle },
+  { name: "FAQ",          url: "/#faq",          icon: HelpCircle },
 ];
 
 export function Navbar() {
@@ -47,10 +46,10 @@ export function Navbar() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-2xl font-display font-bold tracking-tighter text-white hover:opacity-80 transition-opacity"
           >
-            TRENDIVO<span className="text-primary">.</span>
+            TRENDIVO<span className="text-primary"> AI</span>
           </Link>
 
-          {/* Desktop Tubelight Nav */}
+          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center">
             <div className="flex items-center gap-1 bg-white/5 border border-white/10 backdrop-blur-lg py-1 px-1 rounded-full">
               {navItems.map((item) => {
@@ -98,16 +97,17 @@ export function Navbar() {
             </div>
           </nav>
 
-          {/* Apply Button */}
+          {/* CTA Button */}
           <div className="hidden md:block">
             <Link href="/apply">
               <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 glow-primary glow-primary-hover transition-all duration-300 font-semibold">
-                Apply Now
+                <Phone className="w-4 h-4 mr-2" />
+                Get Free Demo
               </Button>
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle */}
           <button
             className="md:hidden text-white p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -133,20 +133,13 @@ export function Navbar() {
             >
               Home
             </Link>
-            <Link
-              href="/ugc"
-              className={`text-2xl font-display font-medium ${location === "/ugc" ? "text-white" : "text-white/60"}`}
+            <a
+              href="/#services"
+              className="text-2xl font-display font-medium text-white/60"
               onClick={() => setMobileMenuOpen(false)}
             >
-              UGC Services
-            </Link>
-            <Link
-              href="/influencer-marketing"
-              className={`text-2xl font-display font-medium ${location === "/influencer-marketing" ? "text-white" : "text-white/60"}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Influencer Marketing Services
-            </Link>
+              Services
+            </a>
             <a
               href={location === "/" ? "#how-it-works" : "/#how-it-works"}
               className="text-2xl font-display font-medium text-white/60"
@@ -167,7 +160,7 @@ export function Navbar() {
                   size="lg"
                   className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl text-lg h-14 glow-primary"
                 >
-                  Apply Now
+                  Get Free Demo
                 </Button>
               </Link>
             </div>

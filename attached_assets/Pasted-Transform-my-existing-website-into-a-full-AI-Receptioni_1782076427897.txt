@@ -1,0 +1,304 @@
+Transform my existing website into a full AI Receptionist Agency website.
+
+DO NOT rebuild from scratch.
+Keep the current design, layout structure, responsiveness, animations, and visual quality.
+Only change content, positioning, and sections.
+
+BRAND NAME:
+Trendivo AI
+
+NEW BUSINESS MODEL:
+We are an AI receptionist agency that helps local businesses stop missing calls, capture more leads, and automatically book appointments using AI voice agents.
+
+TARGET CUSTOMERS:
+
+* Medical clinics
+* Dental clinics
+* Plumbing companies
+* HVAC companies
+* Roofing companies
+* Cleaning services
+* Landscaping companies
+* Any local service-based business that receives phone calls
+
+PRIMARY POSITIONING:
+Never Miss Another Customer Call Again
+
+We build AI receptionists that answer calls, qualify leads, and book appointments 24/7.
+
+---
+
+# HOMEPAGE CHANGES
+
+## HERO SECTION
+
+Headline:
+Never Miss Another Customer Call Again
+
+Subheadline:
+We build AI receptionists that answer calls, capture leads, and book appointments automatically — 24/7.
+
+Primary CTA:
+Get Free AI Demo
+
+Secondary CTA:
+See How It Works
+
+Replace any influencer marketing visuals with:
+
+* AI phone dashboard mockups
+* call center AI visuals
+* modern SaaS UI elements
+
+---
+
+## SERVICES SECTION
+
+Replace all influencer marketing services with:
+
+1. AI Receptionist Setup
+   We build a custom AI voice receptionist trained on your business.
+
+2. Appointment Booking Automation
+   AI books appointments directly into your calendar.
+
+3. Missed Call Recovery
+   Never lose customers who call after hours or when you're busy.
+
+4. 24/7 Call Answering
+   Your business answers every call automatically.
+
+---
+
+## HOW IT WORKS
+
+Step 1:
+We learn about your business
+
+Step 2:
+We build your AI receptionist
+
+Step 3:
+We connect your phone system and booking calendar
+
+Step 4:
+You start receiving more booked appointments and leads
+
+---
+
+## BENEFITS SECTION
+
+* Answer every call instantly
+* Book appointments automatically
+* Capture missed leads
+* Reduce lost customers
+* Improve customer experience
+* Works 24/7 without staff
+
+---
+
+## INDUSTRIES SECTION
+
+Create clean cards for:
+
+* Medical Clinics
+* Dental Clinics
+* Plumbing
+* HVAC
+* Roofing
+* Cleaning Services
+* Landscaping
+* Real Estate
+
+---
+
+## SOCIAL PROOF SECTION
+
+Add placeholder testimonials like:
+
+“Since using AI receptionists, we stopped missing calls completely.”
+— Local Business Owner
+
+Include a section for future:
+
+* case studies
+* call recordings
+* performance results
+
+---
+
+## CTA SECTION
+
+Headline:
+Your Next Customer Shouldn’t Go To Voicemail
+
+Button:
+Get Your Free AI Receptionist Demo
+
+---
+
+## FOOTER
+
+Trendivo AI
+
+Helping local businesses answer every call and book more appointments with AI.
+
+---
+
+# APPLICATION / FREE DEMO PAGE (VERY IMPORTANT)
+
+Replace the current application page completely.
+
+Design:
+
+* Modern SaaS onboarding form
+* Multi-step form
+* Clean progress UI
+* Professional UI/UX
+* Mobile friendly
+
+---
+
+## PAGE HEADLINE
+
+Get Your Free AI Receptionist Demo
+
+## SUBHEADLINE
+
+Tell us about your business and we’ll show you how an AI receptionist can answer your calls, capture leads, and book appointments automatically.
+
+---
+
+## SECTION 1: BUSINESS INFO
+
+* Business Name
+* Owner Name
+* Email
+* Phone Number
+* Website
+* Industry
+
+Industry options:
+
+* Medical Clinic
+* Dental Clinic
+* Plumbing
+* HVAC
+* Roofing
+* Cleaning
+* Landscaping
+* Real Estate
+* Law
+* Other
+
+---
+
+## SECTION 2: CURRENT CALL HANDLING
+
+* How are calls currently handled?
+  (Owner / Staff / Voicemail / Receptionist / Call center / Other)
+
+* How many calls per week?
+  (0–25 / 25–50 / 50–100 / 100+)
+
+* Do you miss calls?
+  (Frequently / Sometimes / Rarely / Never)
+
+* Do you receive after-hours calls?
+  (Yes / No)
+
+---
+
+## SECTION 3: BOOKING SYSTEM
+
+* Do customers book appointments?
+  (Yes / No)
+
+If yes:
+
+* What system do you use?
+  (Google Calendar / Calendly / Jane App / Jobber / Housecall Pro / Other)
+
+---
+
+## SECTION 4: SERVICES
+
+* What services do you offer? (text box)
+* Common customer questions? (text box)
+* Business hours? (text box)
+
+---
+
+## SECTION 5: GOALS
+
+Checkboxes:
+
+* Answer all calls
+* Book appointments automatically
+* Capture missed leads
+* Handle after-hours calls
+* Reduce missed customers
+
+---
+
+## FINAL QUESTION
+
+Would you like a free personalized AI receptionist demo?
+
+(Yes / No)
+
+---
+
+## SUBMIT BUTTON
+
+Get My Free Demo
+
+---
+
+## SUCCESS PAGE
+
+Headline:
+Application Received
+
+Text:
+We’ll review your business details and send you a personalized AI receptionist demo shortly.
+
+Button:
+Return Home
+
+---
+
+## DATA STORAGE
+
+Store all submissions with:
+
+* timestamp
+* business name
+* industry
+* phone number
+* email
+* call volume
+* goals
+
+Enable export to CSV.
+
+---
+
+# DESIGN DIRECTION
+
+* Modern SaaS aesthetic
+* Dark blue / white / gray theme
+* Clean typography
+* High trust design
+* No “AI hype” visuals
+* Focus on business outcomes, not technology
+
+---
+
+# IMPORTANT RULE
+
+Remove ALL influencer marketing messaging completely.
+
+Every section must clearly communicate:
+
+We help businesses answer calls and book more customers using AI receptionists.
