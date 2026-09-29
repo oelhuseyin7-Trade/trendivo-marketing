@@ -54,14 +54,19 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            href="/"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-2xl font-display font-bold tracking-tighter text-white hover:opacity-80 transition-opacity"
-          >
-            TRENDIVO<span className="text-primary"> AI</span>
-          </Link>
+          {/* Company brand + founder attribution */}
+          <div className="flex flex-col items-start leading-none">
+            <Link
+              href="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-2xl font-display font-bold tracking-tighter text-white hover:opacity-80 transition-opacity"
+            >
+              TRENDIVO<span className="text-primary"> AI</span>
+            </Link>
+            <span className="mt-1 text-[10px] font-medium tracking-[0.16em] uppercase text-white/45">
+              Founded by Omar Scales
+            </span>
+          </div>
 
           {/* Desktop Nav — ExpandableTabs */}
           <nav className="hidden nav:flex items-center">

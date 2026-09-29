@@ -10,6 +10,12 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           <div className="col-span-1 lg:col-span-2">
+            <div className="mb-7">
+              <p className="text-2xl font-display font-bold tracking-tight text-white">
+                Trendivo<span className="text-primary"> AI</span>
+              </p>
+              <p className="mt-1 text-sm text-white/45">Founded by Omar Scales</p>
+            </div>
             <h2 className="text-3xl font-display font-bold text-white mb-4">
               Ready to stop missing calls?
             </h2>
@@ -53,9 +59,12 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-sm">
-            © {new Date().getFullYear()} Trendivo AI. All rights reserved.
-          </p>
+          <div className="text-center md:text-left">
+            <p className="text-white/40 text-sm">
+              © {new Date().getFullYear()} Trendivo AI. All rights reserved.
+            </p>
+            <p className="mt-1 text-xs text-white/30">Founded by Omar Scales</p>
+          </div>
           <div className="flex gap-6 text-sm text-white/40">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

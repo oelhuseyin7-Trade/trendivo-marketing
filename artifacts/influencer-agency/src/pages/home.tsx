@@ -116,6 +116,9 @@ export default function Home() {
                 <Phone className="w-4 h-4 text-primary" />
                 <span>AI Receptionists for Local Businesses</span>
               </div>
+              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-white/45">
+                Trendivo AI <span className="text-primary/80">·</span> Founded by Omar Scales
+              </p>
 
               <h1 className="text-5xl sm:text-6xl md:text-8xl font-display font-extrabold tracking-tighter mb-8 leading-[1.1]">
                 Never Miss
@@ -422,6 +425,31 @@ export default function Home() {
               </Accordion>
             </motion.div>
           </div>
+        </section>
+
+        {/* ── FOUNDER ── */}
+        <section className="py-24 relative border-y border-white/5 bg-black/20">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto px-6"
+          >
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12 text-center">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-primary">
+                Founder-led, company-built
+              </p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-5">
+                Built by Omar Scales
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg leading-relaxed text-white/60">
+                Omar Scales is the founder of Trendivo AI. He builds AI systems that help
+                businesses handle calls, capture leads, and automate repetitive work — so
+                local teams can focus on serving their customers.
+              </p>
+            </div>
+          </motion.div>
         </section>
 
         {/* ── BOTTOM CTA ── */}

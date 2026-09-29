@@ -1,0 +1,85 @@
+I want to update the branding of my existing website without rebuilding the website from scratch.
+
+IMPORTANT:
+Keep the current website structure, layout, functionality, animations, sections, styling, responsiveness, and overall design unless a change is specifically required for the new branding.
+
+NEW BRAND STRUCTURE:
+
+Company:
+Trendivo AI
+
+Founder / personal brand:
+Omar Scales
+
+The website should communicate that Trendivo AI is the company, while Omar Scales is the founder and public-facing personal brand.
+
+BRANDING HIERARCHY:
+
+- Main company name: Trendivo AI
+- Founder: Omar Scales
+- Social media identity: @OmarScales
+- Do NOT use "Omar Elhuseyin" as the public-facing brand name.
+- Do NOT replace Trendivo AI with Omar Scales as the company name.
+- The relationship should feel like:
+  "Trendivo AI — by Omar Scales"
+  or
+  "Trendivo AI — founded by Omar Scales"
+
+WEBSITE CHANGES:
+
+1. Keep "Trendivo AI" as the primary company/brand name throughout the website.
+
+2. Add a subtle but professional "by Omar Scales" or "Founded by Omar Scales" element near the main branding/hero area.
+
+3. Add a founder section near the bottom of the homepage:
+   "Built by Omar Scales"
+   Explain briefly that Omar Scales is the founder of Trendivo AI and builds AI systems that help businesses handle calls, capture leads, and automate repetitive work.
+
+4. In the footer, include:
+   "Trendivo AI"
+   "Founded by Omar Scales"
+
+5. If there are social media links or social icons, make the personal social identity:
+   @OmarScales
+
+6. Do not create social accounts or links for "Trendivo AI" unless they already exist in the current website.
+
+7. Make sure the branding feels intentional and NOT like two unrelated brands. Visitors should immediately understand:
+   Trendivo AI = the company
+   Omar Scales = the founder
+
+8. Update page metadata, browser title, Open Graph title, and other relevant SEO branding so the company is represented as:
+   "Trendivo AI — AI Automation & Voice Systems"
+   with Omar Scales identified as the founder where appropriate.
+
+9. Search the entire codebase for old branding references and make sure there are no accidental inconsistencies such as:
+   "Omar AI"
+   "Omar Scales AI"
+   "Trendivo"
+   or other outdated company names where they shouldn't appear.
+
+10. Keep the website professional and credible. Do not make it look like a personal portfolio. It should look like a real AI company that is founder-led.
+
+DESIGN DIRECTION:
+
+The website should feel:
+- Modern
+- Clean
+- Professional
+- Premium
+- Minimal
+- Trustworthy
+- Founder-led but still clearly a company
+
+Do NOT make "Omar Scales" larger than "Trendivo AI" in the main company branding.
+
+The visual hierarchy should be:
+
+TRENDIVO AI
+AI Automation & Voice Systems
+Founded by Omar Scales
+
+Do not overuse the founder's name throughout the website. It should feel natural and intentional.
+
+IMPORTANT:
+Before making changes, inspect the existing website and preserve its current design. Only modify the branding/content needed to implement this new structure.
