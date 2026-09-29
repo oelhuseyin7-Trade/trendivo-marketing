@@ -14,7 +14,6 @@ export function Footer() {
               <p className="text-2xl font-display font-bold tracking-tight text-white">
                 Trendivo<span className="text-primary"> AI</span>
               </p>
-              <p className="mt-1 text-sm text-white/45">Founded by Omar Scales</p>
             </div>
             <h2 className="text-3xl font-display font-bold text-white mb-4">
               Ready to stop missing calls?
